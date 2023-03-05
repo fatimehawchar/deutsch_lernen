@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSV to JSON Converter</title>
+    <title>TSV to JSON Converter</title>
     <link rel="stylesheet" 
 href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.0.5/tailwind.min.css" 
 integrity="sha512-x2/xh9RlP29eYFlU+jog6DQdbk8RROHdSDVJZcAt6U/yv3U/jB6sACn7EYJnp07o+7nLc+n2Ql7FJzruf+xEg==" 
@@ -10,13 +10,13 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto py-8">
-        <h1 class="text-center text-2xl font-bold mb-4">CSV to JSON 
+        <h1 class="text-center text-2xl font-bold mb-4">TSV to JSON 
 Converter</h1>
         <form>
             <div class="mb-4">
                 <label class="block text-gray-700 font-bold mb-2" 
 for="csv-data">
-                    Paste your CSV data here:
+                    Paste your TSV data here:
                 </label>
                 <textarea class="w-full px-3 py-2 border rounded-lg" 
 id="csv-data" name="csv-data" rows="8"></textarea>
@@ -24,7 +24,7 @@ id="csv-data" name="csv-data" rows="8"></textarea>
             <div class="flex justify-center">
                 <button class="px-4 py-2 bg-blue-500 text-white font-bold 
 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" 
-type="button" onclick="convertCsvToJson()">
+type="button" onclick="convertTsvToJson()">
                     Convert
                 </button>
             </div>
@@ -36,14 +36,14 @@ rounded-lg"></pre>
         </div>
     </div>
     <script>
-        function convertCsvToJson() {
+        function convertTsvToJson() {
             const csvData = document.getElementById('csv-data').value;
             const lines = csvData.split('\n');
-            const headers = lines[0].split(',');
+            const headers = lines[0].split('\t');
             const result = [];
             for (let i = 1; i < lines.length; i++) {
                 const obj = {};
-                const currentline = lines[i].split(',');
+                const currentline = lines[i].split('\t');
                 for (let j = 0; j < headers.length; j++) {
                     obj[headers[j]] = currentline[j];
                 }
