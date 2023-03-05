@@ -1395,4 +1395,12 @@
     "src": "treu",
     "dst": "hűséges"
   }
+  {
+    "src": "zwecklos",
+    "dst": "céltalan"
+  },
+  {
+    "src": "bewahren",
+    "dst": "megőriz"
+  }
 ]
